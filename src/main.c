@@ -17,8 +17,32 @@ void testing()
             {0, 0, 0, 0, 8, 0, 0, 7, 9}
         };
     display(board);
-    int result = inRow(1, 3, board);
-    printf("%d", result); 
+    printf("Column testing\n");
+    int result = inCol(0, 9, board);
+    printf("%d\n", result); 
+    result = inCol(8, 2, board);
+    printf("%d\n", result); 
+    result = inCol(3, 5, board);
+    printf("%d\n", result); 
+    result = inCol(1, 6, board);
+    printf("%d\n", result); 
+    result = inCol(8, 5, board);
+    printf("%d\n", result); 
+    result = inCol(3, 4, board);
+    printf("%d\n", result); 
+    printf("Subgrid testing\n");
+    result = inSubgrid(1, 1, 3, board);
+    printf("%d\n", result); 
+    result = inSubgrid(3, 0, 3, board);
+    printf("%d\n", result); 
+    result = inSubgrid(1, 1, 6, board);
+    printf("%d\n", result); 
+    result = inSubgrid(1, 1, 2, board);
+    printf("%d\n", result); 
+    result = inSubgrid(2, 5, 7, board);
+    printf("%d\n", result); 
+    result = inSubgrid(8, 8, 1, board);
+    printf("%d\n", result); 
 }
 
 int main(void)
