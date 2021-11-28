@@ -58,6 +58,9 @@ static void testing()
     printf("%d\n", result); 
     result = validMove(6, 8, 2, board);
     printf("%d\n", result); 
+    printf("Testing solver\n");
+    printf("Status: %d\n", solve(board));
+    display(board);
 }
 
 int main(void)

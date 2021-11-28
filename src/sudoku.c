@@ -62,3 +62,30 @@ int validMove(int x, int y, int number, int board[][9])
     return (checkRow && checkCol && checkSub);
 
 }
+
+
+/* Solve board recursive function */
+int solve(int board[][9])
+{
+    // Find the nearest empty cell
+    for (int y = 0; y < 9; y++) {
+        for (int x = 0; x < 9; x++) {
+            if (board[y][x] == 0) {
+                // Slot in first valid number
+                for (int num = 1; num < 10; num++) {
+                    if (validMove(x, y, num, board)) {
+                        board[y][x] = num;
+                        // We return true if the final solve call is true
+                        if ((solve(board)))
+                            return 1;
+                    }
+                }
+                // return false if no valid for cell
+                board[y][x] = 0;
+                return 0;
+            }
+        }
+    }
+    // return true if there are no empty cells
+    return 1;
+}
