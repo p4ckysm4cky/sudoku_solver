@@ -41,7 +41,7 @@ int inSubgrid(int x, int y, int number, int board[][9])
 {
     // Finding subgrid startion position
     int start_x = x - (x % 3);
-    int start_y = x - (y % 3);
+    int start_y = y - (y % 3);
     // Searching
     for (int y = start_y; y < start_y+3; y++) {
         for (int x = start_x; x < start_x+3; x++) {
@@ -50,4 +50,15 @@ int inSubgrid(int x, int y, int number, int board[][9])
         }
     }
     return 0;
+}
+
+
+/* return true if we can place number at position */
+int validMove(int x, int y, int number, int board[][9])
+{
+    char checkRow = ! (char) inRow(y, number, board);
+    char checkCol = ! (char) inCol(x, number, board);
+    char checkSub = ! (char) inSubgrid(x, y, number, board);
+    return (checkRow && checkCol && checkSub);
+
 }
