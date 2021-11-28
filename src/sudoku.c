@@ -7,10 +7,20 @@
 void display(int board[][9])
 {
     for (int y = 0; y < 9; y++) {
+        if (y % 3 == 0)
+            printf("+-----+-----+-----+\n");
         for (int x = 0; x < 9; x++)
-            printf("%d ", board[y][x]);
+            if (x % 3 == 0)
+                printf("|%d ", board[y][x]);
+            else if (x == 8)
+                printf("%d|", board[y][x]);
+            else if (x % 3 == 2)
+                printf("%d", board[y][x]);
+            else
+                printf("%d ", board[y][x]);
         putchar('\n');
     }
+    printf("+-----+-----+-----+\n");
 }
 
 
@@ -64,7 +74,7 @@ int validMove(int x, int y, int number, int board[][9])
 }
 
 
-/* Solve board recursive function */
+/* Solve sudoku board recursively */
 int solve(int board[][9])
 {
     // Find the nearest empty cell
