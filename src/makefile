@@ -14,4 +14,4 @@
 
 # ------------------------------------------------
 output: main.c sudoku.c
-	gcc -g main.c sudoku.c -o main
+	gcc -g main.c sudoku.c retrieve.c -o main

@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sudoku.h"
+#include "retrieve.h"
 
-static void testing()
+
+static void testingSudoku();
+static void testingRetrieve();
+
+
+static void testingSudoku()
 {
     int board[9][9] =
         {
@@ -63,7 +69,28 @@ static void testing()
     display(board);
 }
 
+
+static void testingRetrieve()
+{
+    int board[9][9] = {0};
+    display(board);
+    putchar('\n');
+    char *dir = "../sample_boards/board_1.txt";
+    get_board(dir, board);
+    display(board);
+    putchar('\n');
+    solve(board);
+    display(board);
+    // FILE *file = fopen(dir, "r");
+    // if (file == NULL) {
+    //     printf("bad");
+    // }
+}
+
+
+
+
 int main(void)
 {
-    testing();
+    testingRetrieve();
 }
