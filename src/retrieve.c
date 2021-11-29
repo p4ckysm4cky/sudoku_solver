@@ -11,7 +11,7 @@ int get_board(char *dir, int board[][9])
     if (file == NULL)
     {
         printf("Invalid file path provided");
-        return 0;
+        return 1;
     }
     // This is probably dodgy because it has
     // no error handling for incorrectly
@@ -23,6 +23,6 @@ int get_board(char *dir, int board[][9])
         }
     }
     fclose(file);
-    return 1;
+    return 0;
 }
 

@@ -81,16 +81,35 @@ static void testingRetrieve()
     putchar('\n');
     solve(board);
     display(board);
-    // FILE *file = fopen(dir, "r");
-    // if (file == NULL) {
-    //     printf("bad");
-    // }
 }
 
 
 
 
-int main(void)
+int main(int argc, char *argv[])
 {
-    testingRetrieve();
+    if (argc == 1) {
+        printf("No file path provided\n");
+        return 1;
+    }
+    else if (argc > 2) {
+        printf("No many arguments provided\n");
+        return 1;
+    }
+
+    int board[9][9] = {0};
+    if (get_board(argv[1], board))
+        return 1;
+    
+    if (solve(board)) {
+        display(board);
+        printf("Solution found!\n");
+        return 0;
+    }
+    else {
+        printf("No solution found!\n");
+        return 1;
+    }
+    
+    
 }
